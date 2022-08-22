@@ -9,6 +9,10 @@ justify-content: center;
 align-items: center;
 position: absolute;
 top: 0;
+@media (max-width: 600px) {
+  justify-content: flex-end;
+  padding-right: 10px;
+}
 `;
 
 export const Main = styled.div`
@@ -52,6 +56,19 @@ background-image: url('/assets/CBG.png');
   border-radius: 25px;
 `;
 
+export const ClaimBox = styled.div`
+width: 350px;
+min-height: 500px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-image: url('/assets/CBG.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+`;
+
 export const CButton = styled.button`
 width: 150px;
 height: 50px;
@@ -84,8 +101,43 @@ font-weight: 400;
 }
 `;
 
+export const ClaimButton = styled.button`
+width: 100px;
+height: 50px;
+background-color: #F5841F;
+color: white;
+font-weight: bold;
+font-family: "BEB";
+font-size: 20px;
+border-radius: 15px;
+border: 2px solid white;
+font-weight: 400;
+:hover {
+    box-shadow: 0 0 0 2px white;
+}
+`;
+
+export const ClaimButtonC= styled.button`
+width: 100px;
+height: 30px;
+background-color: #F5841F;
+color: white;
+font-weight: bold;
+font-family: "BEB";
+font-size: 20px;
+border-radius: 5px;
+border: 2px solid white;
+font-weight: 400;
+:hover {
+    box-shadow: 0 0 0 2px white;
+}
+`;
+
 export const IMGDiamond = styled.img`
 width: 220px;
+@media (max-width: 800px) {
+  width: 150px;
+}
 @media (max-width: 600px) {
  display: none;
 }
@@ -162,4 +214,28 @@ display: flex;
 justify-content: center;
 align-items: center;
 border: 1px solid #92E5FF
+`;
+
+
+export const IDWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+width: 100%;
+align-items: center;
+`;
+
+export const IDS = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+width: 100%;
+align-items: center;
+`;
+
+export const HR = styled.hr`
+width: 80%;
+height: 2px;
+background-color: white;
+border: 1px solid white
 `;

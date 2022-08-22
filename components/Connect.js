@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as s from '../styles/styles';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -176,6 +177,21 @@ const items = [
 
 
   return (
+    <>
+    {Account ? (
+      <>
+      <br></br>
+      <Link href={'/Claim'} passHref>
+      <s.ClaimButton>
+      Claim
+    </s.ClaimButton>
+    </Link>
+    <br></br>
+      </>
+    ) : (
+      <></>
+    )}
+
     <s.Container>
           <Toaster />
     <s.IMGDiamond src='/assets/dm.png'/>
@@ -256,6 +272,7 @@ const items = [
 
     <s.IMGDiamond src='/assets/dm.png'/>
     </s.Container>
+    </>
   )
 }
 
