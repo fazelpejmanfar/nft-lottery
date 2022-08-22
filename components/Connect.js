@@ -50,6 +50,7 @@ function Connect() {
 
   const Connect = async() => {
     const web3Modal = new Web3Modal({
+      cacheProvider: false,
       providerOptions // required
     });
     try {
