@@ -2,25 +2,82 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "BEB";
+    background-image: url('/assets/bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: "BEB";
+  src: local("BEB"), url(./fonts/BebasNeue-Regular.woff) format("woff");
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.p-progressbar .p-progressbar-label {
+  display: none;
 }
+
+.p-progressbar .p-progressbar-value {
+  background: #52B4E3!important;
+  border-radius: 5px;
+}
+
+.p-progressbar {
+  background: #ffffff!important;
+}
+
+.p-splitbutton {
+  width: 150px;
+  border-radius: 30px;
+}
+
+.p-button {
+  color: white!important;
+  background: #4ADF59!important;
+  border: 1px solid white!important;
+}
+
+.p-button.p-button-icon-only {
+  width: 150px!important;
+}
+
+.p-splitbutton .p-splitbutton-defaultbutton, .p-splitbutton.p-button-rounded>.p-splitbutton-defaultbutton.p-button, .p-splitbutton.p-button-outlined>.p-splitbutton-defaultbutton.p-button {
+  display: none!important;
+}
+
+.p-splitbutton-menubutton, .p-splitbutton.p-button-rounded>.p-splitbutton-menubutton.p-button, .p-splitbutton.p-button-outlined>.p-splitbutton-menubutton.p-button {
+  border-top-left-radius: 15px!important; 
+  border-bottom-left-radius: 15px!important;
+  border-top-right-radius: 15px!important; 
+  border-bottom-right-radius: 15px!important;
+}
+
+.pi-chevron-down:before {
+  content: "MINT"!important;
+  font-weight: 400;
+  font-family: "BEB";
+  font-size: 20px;
+}
+
+.p-menu .p-menuitem-link .p-menuitem-text {
+  font-family: 'BEB'!important;
+  color: white!important;
+  font-size: 20px!important;
+}
+
+.p-menu.p-menu-overlay {
+  background: #4adf59!important;
+}
+
+.p-menu .p-menuitem-link:not(.p-disabled):hover {
+  background: green!important;
+}
+
