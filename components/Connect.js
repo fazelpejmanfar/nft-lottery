@@ -8,11 +8,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import toast, { Toaster } from 'react-hot-toast';
 import ABI from './abi.json'
 import ABI2 from './abi2.json'
-import { ProgressBar } from 'primereact/progressbar';
-import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
-import "primereact/resources/primereact.min.css";                  //core css
-import "primeicons/primeicons.css";                                //icons
-import { SplitButton } from 'primereact/splitbutton';
+
 
 const providerOptions = {
   walletconnect: {
@@ -149,22 +145,6 @@ const MintBUSD = async() => {
     }
 };
 
-const items = [
-  {
-      label: 'Mint with BNB',
-      command: (e) => {
-        MintBNB();
-      }
-  },
-  {
-      label: 'Mint with BUSD',
-      command: (e) => {
-          MintBUSD();
-      }
-  }
-]
-
-
   useEffect(() => {
     window.ethereum.on('accountsChanged', (accounts) => {
         setAccount(accounts[0]);
@@ -182,16 +162,30 @@ const items = [
     {Account ? (
       <>
       <br></br>
+      <s.ClaimWrapper>
       <Link href={'/Claim'} passHref>
       <s.ClaimButton>
       Claim
     </s.ClaimButton>
     </Link>
+    </s.ClaimWrapper>
     <br></br>
       </>
     ) : (
-      <></>
+      <>
+      <br></br>
+    <s.ClaimWrapper>
+    <s.CButton onClick={(e) => {
+        e.preventDefault();
+        Connect();
+    }}>
+        Connect Wallet
+    </s.CButton>
+    </s.ClaimWrapper>
+    <br></br>
+      </>
     )}
+
 
     <s.Container>
           <Toaster />
@@ -199,19 +193,17 @@ const items = [
 
     {!Account ? (
       <>
-      <s.ConnectBox>
+      <s.ConnectBox  style={{justifyContent: 'flex-end'}}>
+<div>
+<Image src='/assets/JTD.png' width={100} height={50} alt='logo'/>
+</div>
     <s.HText>
         NFT LOTTERY <br></br>
         <span style={{fontSize: 20}}>
         VOL 1
         </span>
     </s.HText>
-    <s.CButton onClick={(e) => {
-        e.preventDefault();
-        Connect();
-    }}>
-        Connect Wallet
-    </s.CButton>
+
     <div>
     <Image src='/assets/CDM.png' width={300} height={300} alt='logo'/>
     </div>
@@ -220,20 +212,23 @@ const items = [
     ) : (
       <>
         <s.ConnectBox style={{justifyContent: 'space-around'}}>
+        <s.TopDiv>
+        <s.RightDiamond>
+    <Image src='/assets/mintd.png' width={50} height={50} alt='logo'/>
+    </s.RightDiamond>
     <s.HText>
-        1000 BNB <br></br>
+        1 in 10 <br></br>
         <span style={{fontSize: 20}}>
-        Total Price Pool
+        wins up to<br></br>
+        </span>
+        <span style={{fontSize: 60}}>
+        2000 $
         </span>
     </s.HText>
-
-    <div style={{width: '80%'}}>
-    <ProgressBar value={(MintedSupply / MaxSupply) * 100}></ProgressBar>
-    <s.Text>
-    {(MintedSupply / MaxSupply) * 100}% of nfts are already minted
-    </s.Text>
-    </div>
-
+    <s.LeftDiamond>
+    <Image src='/assets/mintd.png' width={50} height={50} alt='logo'/>
+    </s.LeftDiamond>
+    </s.TopDiv>
     <s.AmountWrapper>
       <s.AmountButton onClick={(e) => {
         e.preventDefault();
@@ -254,17 +249,22 @@ const items = [
     </s.AmountWrapper>
 
     <s.MintButtonWrapper>
-    <s.LeftDiamond>
-    <Image src='/assets/mintd.png' width={50} height={50} alt='logo'/>
-    </s.LeftDiamond>
-    <SplitButton model={items}></SplitButton>
-    <s.RightDiamond>
-    <Image src='/assets/mintd.png' width={50} height={50} alt='logo'/>
-    </s.RightDiamond>
+    <s.GreenButton onClick={(e) => {
+      e.preventDefault();
+      MintBNB();
+    }}>
+      Mint With BNB
+    </s.GreenButton>
+    <s.GreenButton onClick={(e) => {
+      e.preventDefault();
+      MintBUSD();
+    }}>
+      Mint With BUSD
+    </s.GreenButton>
 </s.MintButtonWrapper>
 
 <s.TotalPrice>
-  {String(Price * Token).substring(0,4)} BNB
+  {String(BUSDPrice * Token).substring(0,4)} BUSD
 </s.TotalPrice>
     </s.ConnectBox>
       </>

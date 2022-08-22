@@ -106,14 +106,14 @@ useEffect(() => {
         <s.Main>
         <Toaster />
         <br></br>
-        <div style={{position: 'relative'}}>
+        <s.ClaimWrapper>
     <s.ClaimButton onClick={(e) => {
         e.preventDefault();
         ClaimAll();
     }}>
       Claim All
     </s.ClaimButton>
-    </div>
+    </s.ClaimWrapper>
     <br></br>
       <s.ClaimBox>
       {Tokens.length > 0 ? Tokens.map((ID, index) => {

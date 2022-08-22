@@ -11,7 +11,7 @@ position: absolute;
 top: 0;
 @media (max-width: 600px) {
   justify-content: flex-end;
-  padding-right: 10px;
+  padding-right: 40px;
 }
 `;
 
@@ -28,6 +28,7 @@ export const HText = styled.h1`
 font-size: 40px;
 text-align: center;
 font-weight: 400;
+margin: 0;
 `;
 
 export const Text = styled.p`
@@ -87,7 +88,7 @@ font-weight: 400;
 
 export const GreenButton = styled.button`
 width: 150px;
-height: 50px;
+height: 40px;
 background-color: #4ADF59;
 color: white;
 font-weight: bold;
@@ -145,19 +146,19 @@ width: 220px;
 
 export const MintButtonWrapper = styled.div`
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
+gap: 15px;
 `;
 
 export const LeftDiamond = styled.div`
 position: relative;
-left: 25px;
 z-index: 5;
 `;
 
 export const RightDiamond = styled.div`
 position: relative;
-right: 25px;
 z-index: 5;
 `;
 
@@ -238,4 +239,23 @@ width: 80%;
 height: 2px;
 background-color: white;
 border: 1px solid white
+`;
+
+export const TopDiv = styled.div`
+display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+`;
+
+export const ClaimWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    @media (max-width: 600px) {
+      justify-content: flex-end;
+    width: 80%;
+}
 `;
