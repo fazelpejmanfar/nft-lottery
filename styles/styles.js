@@ -172,13 +172,13 @@ gap: 30px;
 
 
 export const AmountButton = styled.button`
-width: 35px;
-height: 35px;
+width: 50px;
+height: 50px;
 background-color: #FFFFFF;
 color: #329ACF;
 font-weight: bold;
 font-family: "BEB";
-font-size: 35px;
+font-size: 60px;
 text-align: center;
 border-radius: 10px;
 border: 2px solid #92E5FF;
@@ -194,9 +194,9 @@ display: flex;
 export const AmountBack = styled.div`
 background-color: white;
 color: #329ACF;
-font-size: 35px;
-width: 70px;
-height: 60px;
+font-size: 50px;
+width: 80px;
+height: 80px;
 border-radius: 10px;
 display: flex;
 justify-content: center;
@@ -255,7 +255,8 @@ export const ClaimWrapper = styled.div`
     justify-content: center;
     z-index: 50;
     @media (max-width: 600px) {
+      margin-top: 70px;
       justify-content: flex-end;
-    width: 80%;
+      width: 80%;
 }
 `;

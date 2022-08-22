@@ -216,9 +216,9 @@ const MintBUSD = async() => {
         <s.RightDiamond>
     <Image src='/assets/mintd.png' width={50} height={50} alt='logo'/>
     </s.RightDiamond>
-    <s.HText>
+    <s.HText style={{lineHeight: "40px"}}>
         1 in 10 <br></br>
-        <span style={{fontSize: 20}}>
+        <span style={{fontSize: 25}}>
         wins up to<br></br>
         </span>
         <span style={{fontSize: 60}}>
@@ -248,6 +248,10 @@ const MintBUSD = async() => {
       </s.AmountButton>
     </s.AmountWrapper>
 
+    <s.TotalPrice>
+  {String(BUSDPrice * Token).substring(0,4)} USD
+</s.TotalPrice>
+
     <s.MintButtonWrapper>
     <s.GreenButton onClick={(e) => {
       e.preventDefault();
@@ -263,9 +267,6 @@ const MintBUSD = async() => {
     </s.GreenButton>
 </s.MintButtonWrapper>
 
-<s.TotalPrice>
-  {String(BUSDPrice * Token).substring(0,4)} BUSD
-</s.TotalPrice>
     </s.ConnectBox>
       </>
     )}
