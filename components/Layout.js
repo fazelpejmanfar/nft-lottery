@@ -8,9 +8,9 @@ export default function Layout({ children }) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="NFT LOTTERY"
+      content="Completely random lottery system. 1 in 10 tickets can grab winnings up to 2000 $"
     />
-    <title>NFT LOTTERY</title>
+    <title>JTD - NFT lottery</title>
     </Head>
         <Header />
         <main>{children}</main>

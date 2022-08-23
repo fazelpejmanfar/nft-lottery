@@ -41,7 +41,7 @@ function Connect() {
   const [MaxSupply, setMaxSupply] = useState(0);
   const [MintedSupply, setMintedSupply] = useState(0);
   const [Token, setToken] = useState(1);
-  const [Price, setPrice] = useState(0.03);
+  const [Price, setPrice] = useState(0.04);
   const [BUSDPrice, setBUSDPrice] = useState(10);
 
   const Connect = async() => {
@@ -65,10 +65,6 @@ function Connect() {
       setMaxSupply(Number(MaxS));
       const MintedS = await NFTCT.totalSupply();
       setMintedSupply(Number(MintedS));
-      const PRC = await NFTCT.mintPriceBnb();
-      setPrice(ToEther(PRC))
-      const BusdPRC = await NFTCT.mintPriceBusd();
-      setBUSDPrice(ToEther(BusdPRC))
       if (network.chainId === 56) {
         setAccount(accounts[0]);
         toast.dismiss();
