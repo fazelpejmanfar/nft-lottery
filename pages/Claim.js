@@ -23,7 +23,7 @@ const providerOptions = {
 
 function Claim() {
 
-  const ContractAddress = '0x7777902e3926f195DBC1392876B2cF1C468a7777';
+  const ContractAddress = '0x777753C569E0c75e88C252f3D8b689Ff445d7777';
   const [Address, setAddress] = useState(null);
   const [NContract, setNContract] = useState(null);
   const [Tokens, setTokens] = useState([]);
@@ -67,8 +67,8 @@ const Claim = await NContract.claimPrize(ID, {
 from: Address,
 gasLimit: 150000
 });
-const TX = await Claim.wait().then('receipt', (rec) => {
-console.log(rec);
+const TX = await Claim.wait().then((receipt) => {
+console.log(receipt);
 toast.dismiss();
 toast.success("Claim was Successfull..");
 }); 
@@ -86,8 +86,8 @@ const Claim = await NContract.claimAllPrizes({
 from: Address,
 gasLimit: 285000
 });
-const TX = await Claim.wait().then('receipt', (rec) => {
-console.log(rec);
+const TX = await Claim.wait().then((receipt) => {
+console.log(receipt);
 toast.dismiss();
 toast.success("Claim was Successfull..");
 }); 
@@ -108,7 +108,7 @@ useEffect(() => {
         <s.Main>
         <Toaster />
         <br></br>
-        <s.ClaimWrapper>
+        <s.ClaimWrapper  style={{marginTop: Tokens.length > 5 ? 80 : 1}}>
     <s.ClaimButton onClick={(e) => {
         e.preventDefault();
         ClaimAll();
@@ -117,7 +117,7 @@ useEffect(() => {
     </s.ClaimButton>
     </s.ClaimWrapper>
     <br></br>
-      <s.ClaimBox>
+    <s.ClaimBox>
       {Tokens.length > 0 ? Tokens.map((ID, index) => {
         return (
             <s.IDWrapper key={index}>

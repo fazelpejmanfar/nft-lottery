@@ -31,7 +31,7 @@ function Connect() {
       return "0x" + val.toString(16);
     };
 
-    const ContractAddress = '0x7777902e3926f195DBC1392876B2cF1C468a7777';
+    const ContractAddress = '0x777753C569E0c75e88C252f3D8b689Ff445d7777';
     const BUSDAddress = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
     const ChainID = 56;
   const [Account, setAccount] = useState(null);
@@ -106,8 +106,8 @@ const Mint = await NFTContract.mintWithBNB(Token, {
   gasLimit: gas,
   value: price
 });
-const TX = await Mint.wait().then('receipt', (rec) => {
-  console.log(rec);
+const TX = await Mint.wait().then((receipt) => {
+  console.log(receipt);
   toast.dismiss();
   toast.success("Mint was Successfull..");
 }); 
@@ -133,8 +133,8 @@ const MintBUSD = async() => {
         from: Account,
         gasLimit: gas
       });
-      const TX = await Mint.wait().then('receipt', (rec) => {
-        console.log(rec)
+      const TX = await Mint.wait().then((receipt) => {
+        console.log(receipt)
         toast.dismiss();
         toast.success("Mint was Successfull..");
       }); 
