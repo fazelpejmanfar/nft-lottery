@@ -65,10 +65,11 @@ function Claim() {
 try {
 const Claim = await NContract.claimPrize(ID, {
 from: Address,
-gasLimit: 285000
+gasLimit: 150000
 });
-const TX = await Claim.wait().then('result', (rec) => {
+const TX = await Claim.wait().then('receipt', (rec) => {
 console.log(rec);
+toast.dismiss();
 toast.success("Claim was Successfull..");
 }); 
 } catch (err) {
@@ -85,8 +86,9 @@ const Claim = await NContract.claimAllPrizes({
 from: Address,
 gasLimit: 285000
 });
-const TX = await Claim.wait().then('result', (rec) => {
+const TX = await Claim.wait().then('receipt', (rec) => {
 console.log(rec);
+toast.dismiss();
 toast.success("Claim was Successfull..");
 }); 
 } catch (err) {
@@ -126,12 +128,19 @@ useEffect(() => {
       <s.HText>
         {ID.token_id}
       </s.HText>
-      <s.ClaimButtonC onClick={(e) => {
+      {ID.token_id > 1235 ? (
+        <>
+        </>
+      ) : (
+        <>
+        <s.ClaimButtonC onClick={(e) => {
         e.preventDefault();
         Claim(ID.token_id);
       }}>
         Claim
       </s.ClaimButtonC>
+        </>
+      )}
       </s.IDS>
       <s.HR></s.HR>
         </s.IDWrapper>

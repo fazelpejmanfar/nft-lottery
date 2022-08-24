@@ -99,14 +99,16 @@ const MintBNB = async() => {
   toast.dismiss();
       toast.loading("Minting...");
   let price = ToWei(String(Token * Price));
+  let gas = String(285000 * Token);
   try {
 const Mint = await NFTContract.mintWithBNB(Token, {
   from: Account,
-  gasLimit: 285000,
+  gasLimit: gas,
   value: price
 });
-const TX = await Mint.wait().then('result', (rec) => {
+const TX = await Mint.wait().then('receipt', (rec) => {
   console.log(rec);
+  toast.dismiss();
   toast.success("Mint was Successfull..");
 }); 
 } catch (err) {
@@ -118,20 +120,22 @@ const TX = await Mint.wait().then('result', (rec) => {
 
 const MintBUSD = async() => {
   let price = ToWei(String(Token * BUSDPrice));
+  let gas = String(285000 * Token);
     try {
       toast.loading("You need to Approve the contract to use BUSD for Transaction");
       const Approve = await BUSDContract.approve(ContractAddress, price, {
         from: Account,
-        gasLimit: 150000
+        gasLimit: gas
       });
       toast.dismiss();
       toast.loading("Minting...");
       const Mint = await NFTContract.mintWithBUSD(Token, {
         from: Account,
-        gasLimit: 285000
+        gasLimit: gas
       });
-      const TX = await Mint.wait().then('result', (rec) => {
+      const TX = await Mint.wait().then('receipt', (rec) => {
         console.log(rec)
+        toast.dismiss();
         toast.success("Mint was Successfull..");
       }); 
     } catch (err) {
