@@ -145,16 +145,6 @@ const MintBUSD = async() => {
     }
 };
 
-  useEffect(() => {
-    window.ethereum.on('accountsChanged', (accounts) => {
-        setAccount(accounts[0]);
-    });
-    window.ethereum.on('chainChanged', (chain) => {
-        if(chain !== toHex(ChainID)) {
-            toast.error('Wrong Network, Please Switch to BSC', {style: {fontFamily: 'BEB'}});
-        }
-    });
-}, [PRD]);
 
 
   return (
