@@ -64,6 +64,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+padding: 20px 0 20px 0;
 background-image: url('/assets/CBG.png');
   background-position: center;
   background-size: cover;
@@ -258,5 +259,14 @@ export const ClaimWrapper = styled.div`
       margin-top: 70px;
       justify-content: flex-end;
       width: 80%;
+}
+`;
+
+export const IMGWrapper = styled.div`
+width: 60px;
+height: 80px;
+:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s;
 }
 `;

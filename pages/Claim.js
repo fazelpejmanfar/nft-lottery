@@ -122,9 +122,11 @@ useEffect(() => {
         return (
             <s.IDWrapper key={index}>
         <s.IDS>
-        <s.Text>
-        ID
-      </s.Text>
+        <s.IMGWrapper>
+        <a href={`https://jtdcrypto.mypinata.cloud/ipfs/QmecoVve8JJ8roANnX57cRLS8TzNENKMyetRNqkUzdZMm8/${ID.token_id}.png`} target={'_blank'} rel='noreferrer'>
+        <Image width={60} height={80} layout={'responsive'} src={`https://jtdcrypto.mypinata.cloud/ipfs/QmecoVve8JJ8roANnX57cRLS8TzNENKMyetRNqkUzdZMm8/${ID.token_id}.png`} alt='nfts'/>
+        </a>
+      </s.IMGWrapper>
       <s.HText>
         {ID.token_id}
       </s.HText>
